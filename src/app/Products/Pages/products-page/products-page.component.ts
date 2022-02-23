@@ -10,9 +10,9 @@ import { CreateProductComponent } from '../../Components/create-product/create-p
   styleUrls: ['./products-page.component.css'],
 })
 export class ProductsPageComponent implements OnInit {
-  products: Product[] = [];
+ 
   constructor(
-    private productService: ProductsService,
+    public productService: ProductsService,
     public dialog: MatDialog
   ) {}
 
@@ -23,7 +23,7 @@ export class ProductsPageComponent implements OnInit {
   loadData(): void {
     this.productService.GetProducts().subscribe((result) => {
       console.log(result);
-      this.products = result as Product[];
+      this.productService.products = result as Product[];
     });
   }
 
@@ -36,7 +36,7 @@ export class ProductsPageComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed', result);
+      //console.log('The dialog was closed', result);
       this.loadData();
     });
   }

@@ -3,7 +3,7 @@
     <h3>Add new product</h3>
   </header>
 
-  <form [formGroup]="productForm" (submit)="submit()">
+  <form [formGroup]="productForm" >
     <mat-form-field ngDefaultControl formControlName="Name">
       <mat-label>Name</mat-label>
       <input matInput placeholder="Example: Buzz" />
@@ -16,30 +16,36 @@
     </mat-form-field>
 
     <mat-form-field ngDefaultControl formControlName="Company">
-        <mat-label>Company</mat-label>
-        <input matInput placeholder="Example: Pixar" />
-        <mat-hint>Example: Pixar</mat-hint>
-      </mat-form-field>
+      <mat-label>Company</mat-label>
+      <input matInput placeholder="Example: Pixar" />
+      <mat-hint>Example: Pixar</mat-hint>
+    </mat-form-field>
 
-      <mat-form-field ngDefaultControl formControlName="ImageUrl">
-        <mat-label>Image Url</mat-label>
-        <input matInput placeholder="" />
-      </mat-form-field>
+    <mat-form-field ngDefaultControl formControlName="ImageUrl">
+      <mat-label>Image Url</mat-label>
+      <input matInput placeholder="" />
+    </mat-form-field>
 
-      <mat-form-field  ngDefaultControl formControlName="AgeRestriction">
-        <mat-label>Age Restriction</mat-label>
-        <input matInput type="number" placeholder="Ex. 12" >
-        <span matSuffix>years</span>
-      </mat-form-field>
+    <mat-form-field ngDefaultControl formControlName="AgeRestriction">
+      <mat-label>Age Restriction</mat-label>
+      <input matInput type="number" placeholder="Ex. 12" />
+      <span matSuffix>years</span>
+    </mat-form-field>
 
-      <mat-form-field appearance="fill" ngDefaultControl formControlName="Price">
-        <mat-label>Price</mat-label>
-        <input matInput type="number" placeholder="0">
-        <span matPrefix>$&nbsp;</span>
-        
-      </mat-form-field>
+    <mat-form-field appearance="fill" ngDefaultControl formControlName="Price">
+      <mat-label>Price</mat-label>
+      <input matInput type="number" placeholder="0" />
+      <span matPrefix>$&nbsp;</span>
+    </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid">
+    <button mat-raised-button (click)="onNoClick()">Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      [disabled]="!productForm.valid"
+      (click)="submit()"
+    >
       Save Changes
     </button>
   </form>

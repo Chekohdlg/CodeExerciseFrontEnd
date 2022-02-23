@@ -27,6 +27,7 @@ import { ProductCardComponent } from './Products/Components/product-card/product
 
 import { ProductsService } from './Products/Services/products.service';
 import { CreateProductComponent } from './Products/Components/create-product/create-product.component';
+import { ConfirmationDialogComponent } from './Products/Components/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CreateProductComponent } from './Products/Components/create-product/cre
     ProductsTableComponent,
     ProductCardComponent,
     CreateProductComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

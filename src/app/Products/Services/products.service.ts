@@ -7,7 +7,7 @@ import { Product } from '../Models/Product';
 export class ProductsService {
    
    private  readonly urlBase= "https://localhost:44365/api/Products";
-  
+   public products: Product[] = [];
    constructor(private httpClient: HttpClient) {
     
     }
@@ -16,10 +16,14 @@ export class ProductsService {
     return this.httpClient.get<Product[]>(this.urlBase);
   }
 
-  SaveProduct(product: Product){
-    console.log("Data to save",product);
-    
+  SaveProduct(product: Product){  
     return this.httpClient.post(this.urlBase, product);
+  }
+
+  DeleteProduct(idProduct: number){
+    console.log(idProduct);
+    
+    return this.httpClient.delete(`${this.urlBase}/${idProduct}`);
   }
 
 }

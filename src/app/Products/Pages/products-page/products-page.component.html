@@ -17,7 +17,7 @@
 </div>
 
 <div class="Card-Container">
-  <section *ngFor="let product of products">
+  <section *ngFor="let product of productService.products">
     <app-product-card [product]="product"></app-product-card>
   </section>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ProductsService } from '../../Services/products.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { ProductsService } from '../../Services/products.service';
 export class CreateProductComponent implements OnInit {
   productForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private productService: ProductsService) {
+  constructor(private fb: FormBuilder, private productService: ProductsService,public dialogRef: MatDialogRef<CreateProductComponent>,) {
     this.productForm = this.fb.group({
       Id: new FormControl(0),
       Name: new FormControl('', [Validators.required,Validators.maxLength(50)]),
@@ -34,11 +35,12 @@ export class CreateProductComponent implements OnInit {
    console.log(product);
    
     this.productService.SaveProduct(product).subscribe(response=>{
-      console.log(response);
-      
+      this.dialogRef.close(response);
     });
+  }
 
-
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 
