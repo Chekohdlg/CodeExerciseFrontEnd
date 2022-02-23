@@ -1,0 +1,16 @@
+.Card-Container{
+    margin: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.TopBar{
+    background-color: antiquewhite;
+    width: 100%;    
+    display: flex;
+    justify-content: space-around;
+}
+
+.Card-Container section{
+    padding-top: 1rem;
+}

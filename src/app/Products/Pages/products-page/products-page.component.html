@@ -1,0 +1,23 @@
+<!-- <app-products-table></app-products-table> -->
+<div class="TopBar">
+  <button
+    mat-icon-button
+    color="primary"
+    aria-label="Example icon button with a home icon"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    color="primary"
+    (click)="openDialog()"
+  >
+    <mat-icon>add_circle</mat-icon>
+  </button>
+</div>
+
+<div class="Card-Container">
+  <section *ngFor="let product of products">
+    <app-product-card [product]="product"></app-product-card>
+  </section>
+</div>
