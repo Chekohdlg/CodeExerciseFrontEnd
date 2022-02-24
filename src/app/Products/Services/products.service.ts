@@ -1,12 +1,13 @@
 import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Product } from '../Models/Product';
+
+import {environment} from '../../../environments/environment'
 
 @Injectable()
 export class ProductsService {
    
-   private  readonly urlBase= "https://localhost:44365/api/Products";
+   private  readonly urlBase= environment.URL_BASE;
    public products: Product[] = [];
    constructor(private httpClient: HttpClient) {
     
