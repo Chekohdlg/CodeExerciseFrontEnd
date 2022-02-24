@@ -32,8 +32,6 @@ export class ProductsService {
   }
 
   UpdateProduct(product:Product, productId:number){
-    console.log('updating in service',product);
-    
     return this.httpClient.put(`${this.urlBase}/${productId}`, product);
   }
 

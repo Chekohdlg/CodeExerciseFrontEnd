@@ -22,14 +22,12 @@ export class ProductsPageComponent implements OnInit {
 
 
   openDialog(): void {
-    console.log("trying to open a dialog");
-    
+
     const dialogRef = this.dialog.open(CreateProductComponent, {
       width: '100%',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      //console.log('The dialog was closed', result);
       this.productService.LoadProductList();;
     });
   }

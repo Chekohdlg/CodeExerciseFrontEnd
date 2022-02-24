@@ -24,7 +24,7 @@ export class ProductCardComponent implements OnInit {
   DeleteProduct():void{
 
     this.productService.DeleteProduct(this.product?.id||0).subscribe(response=>{
-      console.log(response);
+     
       this.productService.LoadProductList();
     }, error=>{
       alert("An error ocurred while is deleting. check the logs")
@@ -33,15 +33,12 @@ export class ProductCardComponent implements OnInit {
 
 
   EditProduct(): void {
-    console.log("trying to open a dialog");
-    
     const dialogRef = this.dialog.open(CreateProductComponent, {
       width: '100%',
       data:   this.product ,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      //console.log('The dialog was closed', result);
       this.productService.LoadProductList();
     });
   }

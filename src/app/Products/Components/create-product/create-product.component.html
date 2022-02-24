@@ -37,18 +37,19 @@
       <input matInput type="number" placeholder="0"  formControlName="Price"/>
       <span matPrefix>$&nbsp;</span>
     </mat-form-field>
-    <p>
-      {{productForm.value | json}}
-    </p>
-    <button mat-raised-button (click)="onNoClick()">Cancel</button>
-    <button
-      mat-raised-button
-      color="primary"
-      type="button"
-      [disabled]="!productForm.valid"
-      (click)="submit()"
-    >
-      Save Changes
-    </button>
+    
+    <footer>
+      <button mat-raised-button (click)="onNoClick()">Cancel</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        [disabled]="!productForm.valid"
+        (click)="submit()"
+      >
+        Save Changes
+      </button>
+    </footer>
+    
   </form>
 </section>

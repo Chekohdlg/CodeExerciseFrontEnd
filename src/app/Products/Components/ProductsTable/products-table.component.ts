@@ -17,7 +17,7 @@ export class ProductsTableComponent implements OnInit {
    }
   ngOnInit(): void {
     this.productService.GetProducts().subscribe(result=>{
-      console.log(result);
+     
       this.dataSource.data = result as Product[];
 
     });

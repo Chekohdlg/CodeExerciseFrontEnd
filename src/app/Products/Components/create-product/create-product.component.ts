@@ -50,10 +50,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data);
-    this.productForm.valueChanges.subscribe((changes) => {
-      console.log('Values changed =>', changes);
-    });
+   
     if (this.data) {
       this.isEditing = true;
       this.setFormData(this.data);
@@ -83,7 +80,7 @@ export class CreateProductComponent implements OnInit {
 
   UpdateProduct() {
     const product = this.getProductFromForm();
-    console.log(product);
+    
     this.productService
       .UpdateProduct(product, product.Id)
       .subscribe((response) => {
@@ -93,7 +90,6 @@ export class CreateProductComponent implements OnInit {
   }
   SaveProduct() {
     const product = this.getProductFromForm();
-    console.log(product);
 
     this.productService
       .SaveProduct(product)
