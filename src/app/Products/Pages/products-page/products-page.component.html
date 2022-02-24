@@ -4,13 +4,16 @@
     mat-icon-button
     color="primary"
     aria-label="Example icon button with a home icon"
+    matTooltip="Refresh"
+    (click)="productService.LoadProductList();"
   >
-    <mat-icon>home</mat-icon>
+    <mat-icon>refresh</mat-icon>
   </button>
   <button
     mat-icon-button
     color="primary"
     (click)="openDialog()"
+    matTooltip="Add new"
   >
     <mat-icon>add_circle</mat-icon>
   </button>

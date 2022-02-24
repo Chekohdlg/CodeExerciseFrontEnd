@@ -17,6 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -51,7 +52,8 @@ import { ConfirmationDialogComponent } from './Products/Components/confirmation-
     MatDialogModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   providers: [ProductsService, ],
   bootstrap: [AppComponent],

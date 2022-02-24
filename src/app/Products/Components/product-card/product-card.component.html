@@ -1,17 +1,26 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>{{product?.name}}</mat-card-title>
-      
-    </mat-card-header>
-    <img mat-card-image src={{product?.imageUrl}} alt={{product?.name}}>
-    <mat-card-content>
-      <p>
-        {{product?.description}}
-      </p>
-      <label for="">${{product?.price}} </label>
-    </mat-card-content>
-    <mat-card-actions class="card-actions">
-      <button mat-raised-button  >Edit</button>
-      <button mat-raised-button color="warn"  (click)="ShowConfirm()">Delete</button>
-    </mat-card-actions>
-  </mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ product?.name }}</mat-card-title>
+  </mat-card-header>
+  <!-- 'https://loremflickr.com/400/600' -->
+
+  <mat-card-content>
+    <img
+      mat-card-image
+      src="{{ product?.imageUrl }}"
+      alt="{{ product?.name }}"
+    />
+
+   
+    <p>
+      {{ product?.description }}
+    </p>
+    <label for="">${{ product?.price }} </label>
+  </mat-card-content>
+  <mat-card-actions class="card-actions">
+    <button mat-raised-button (click)="EditProduct()">Edit</button>
+    <button mat-raised-button color="warn" (click)="ShowConfirm()">
+      Delete
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -12,6 +12,13 @@ export class ProductsService {
     
     }
 
+
+  LoadProductList():void{
+    this.GetProducts().subscribe(response=>{
+      this.products = response as Product[];
+    })
+  }
+
   GetProducts(){
     return this.httpClient.get<Product[]>(this.urlBase);
   }
@@ -20,10 +27,15 @@ export class ProductsService {
     return this.httpClient.post(this.urlBase, product);
   }
 
-  DeleteProduct(idProduct: number){
-    console.log(idProduct);
-    
+  DeleteProduct(idProduct: number){  
     return this.httpClient.delete(`${this.urlBase}/${idProduct}`);
   }
+
+  UpdateProduct(product:Product, productId:number){
+    console.log('updating in service',product);
+    
+    return this.httpClient.put(`${this.urlBase}/${productId}`, product);
+  }
+
 
 }

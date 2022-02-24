@@ -4,40 +4,42 @@
   </header>
 
   <form [formGroup]="productForm" >
-    <mat-form-field ngDefaultControl formControlName="Name">
+    <mat-form-field >
       <mat-label>Name</mat-label>
-      <input matInput placeholder="Example: Buzz" />
+      <input matInput placeholder="Example: Buzz" formControlName="Name"  />
       <mat-hint>Example: Buzz</mat-hint>
     </mat-form-field>
 
-    <mat-form-field ngDefaultControl formControlName="Description">
+    <mat-form-field  >
       <mat-label>Description</mat-label>
-      <textarea matInput></textarea>
+      <textarea matInput formControlName="Description"></textarea>
     </mat-form-field>
 
-    <mat-form-field ngDefaultControl formControlName="Company">
+    <mat-form-field >
       <mat-label>Company</mat-label>
-      <input matInput placeholder="Example: Pixar" />
+      <input matInput placeholder="Example: Pixar"  formControlName="Company"/>
       <mat-hint>Example: Pixar</mat-hint>
     </mat-form-field>
 
-    <mat-form-field ngDefaultControl formControlName="ImageUrl">
+    <mat-form-field >
       <mat-label>Image Url</mat-label>
-      <input matInput placeholder="" />
+      <input matInput placeholder=""   formControlName="ImageUrl"/>
     </mat-form-field>
 
-    <mat-form-field ngDefaultControl formControlName="AgeRestriction">
+    <mat-form-field  >
       <mat-label>Age Restriction</mat-label>
-      <input matInput type="number" placeholder="Ex. 12" />
+      <input matInput type="number" placeholder="Ex. 12" formControlName="AgeRestriction" />
       <span matSuffix>years</span>
     </mat-form-field>
 
-    <mat-form-field appearance="fill" ngDefaultControl formControlName="Price">
+    <mat-form-field appearance="fill"  >
       <mat-label>Price</mat-label>
-      <input matInput type="number" placeholder="0" />
+      <input matInput type="number" placeholder="0"  formControlName="Price"/>
       <span matPrefix>$&nbsp;</span>
     </mat-form-field>
-
+    <p>
+      {{productForm.value | json}}
+    </p>
     <button mat-raised-button (click)="onNoClick()">Cancel</button>
     <button
       mat-raised-button

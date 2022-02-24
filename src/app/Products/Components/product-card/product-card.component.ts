@@ -4,6 +4,7 @@ import { ProductsService } from '../../Services/products.service';
 import { ProductsPageComponent } from '../../Pages/products-page/products-page.component';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { CreateProductComponent } from '../create-product/create-product.component';
 
 @Component({
   selector: 'app-product-card',
@@ -15,7 +16,7 @@ export class ProductCardComponent implements OnInit {
   product!: Product;
   
   
-  constructor(private productService: ProductsService, private pageList:ProductsPageComponent,public dialog: MatDialog) { }
+  constructor(private productService: ProductsService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -24,11 +25,26 @@ export class ProductCardComponent implements OnInit {
 
     this.productService.DeleteProduct(this.product?.id||0).subscribe(response=>{
       console.log(response);
-      this.pageList.loadData();
+      this.productService.LoadProductList();
+    }, error=>{
+      alert("An error ocurred while is deleting. check the logs")
     })
   }
 
 
+  EditProduct(): void {
+    console.log("trying to open a dialog");
+    
+    const dialogRef = this.dialog.open(CreateProductComponent, {
+      width: '100%',
+      data:   this.product ,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      //console.log('The dialog was closed', result);
+      this.productService.LoadProductList();
+    });
+  }
   ShowConfirm(): void {
     this.dialog
       .open(ConfirmationDialogComponent, {

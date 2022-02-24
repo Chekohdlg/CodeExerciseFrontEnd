@@ -17,27 +17,20 @@ export class ProductsPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadData();
+    this.productService.LoadProductList();;
   }
 
-  loadData(): void {
-    this.productService.GetProducts().subscribe((result) => {
-      console.log(result);
-      this.productService.products = result as Product[];
-    });
-  }
 
   openDialog(): void {
     console.log("trying to open a dialog");
     
     const dialogRef = this.dialog.open(CreateProductComponent, {
       width: '100%',
-      data: { name: 'test', animal: 'test' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
       //console.log('The dialog was closed', result);
-      this.loadData();
+      this.productService.LoadProductList();;
     });
   }
 
