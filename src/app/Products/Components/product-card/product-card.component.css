@@ -1,21 +1,27 @@
 .example-card {
-    margin: 0 1rem;
-    width: 400px;
-    height: 600px;
-    padding-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-.example-card-img:hover {
-    background-color: black;
+  margin: 0 1rem;
+  width: 400px;
+  height: 600px;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-  .example-header-image {
-    background-image: url('https://loremflickr.com/400/600');
-    background-size: cover;
-  }
+.example-card-img:hover {
+  background-color: black;
+}
+.example-header-image {
+  background-image: url("https://loremflickr.com/400/600");
+  background-size: cover;
+}
 
-  .card-actions{
-      display: flex;
-      justify-content: space-between;
-  }
+.mat-card-content {
+  height: 50%;
+}
+.mat-card-image:first-child{
+  height: 100%;
+}
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+}
