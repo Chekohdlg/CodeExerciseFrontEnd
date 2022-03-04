@@ -19,8 +19,13 @@
   </button>
 </div>
 
-<div class="Card-Container">
+<div class="Card-Container" *ngIf="productService.products.length>0 else Loading" >
   <section *ngFor="let product of productService.products">
     <app-product-card [product]="product"></app-product-card>
   </section>
 </div>
+
+<ng-template #Loading>
+<div class="spinner"><mat-spinner></mat-spinner>
+</div>
+</ng-template>

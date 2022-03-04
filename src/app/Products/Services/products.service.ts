@@ -15,6 +15,7 @@ export class ProductsService {
 
 
   LoadProductList():void{
+    this.products = [];
     this.GetProducts().subscribe(response=>{
       this.products = response as Product[];
     })
